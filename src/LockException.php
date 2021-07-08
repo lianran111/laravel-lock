@@ -8,5 +8,6 @@
 
 namespace Lock;
 
-
-class LockException extends \Exception{}
+class LockException extends \Exception
+{
+}

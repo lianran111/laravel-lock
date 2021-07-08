@@ -24,9 +24,9 @@ class Factory
 
     //默认配置
     private $default_config = [
-        'host'   =>  '127.0.0.1',
-        'port'   =>  '6379',
-        'drive'  =>  'redis',
+        'host'  => '127.0.0.1',
+        'port'  => '6379',
+        'drive' => 'redis',
     ];
 
     /**
@@ -65,7 +65,7 @@ class Factory
     {
         if ($this->lock) return $this->lock;
 
-        switch ($this->drive){
+        switch ($this->drive) {
             case 'redis':
                 $this->lock = new RedisLock($config, $params);
                 break;
@@ -84,7 +84,7 @@ class Factory
         if ($this->config) return $this->config;
 
         if (!empty($config)) {
-            $config = array_merge($this->default_config, $config);
+            $config      = array_merge($this->default_config, $config);
             $this->drive = $config['drive'];
 
             return $this->config = $config[$this->drive];
@@ -93,7 +93,7 @@ class Factory
         $this->drive  = config('lock')['drive'];
         $this->config = config('lock')[$this->drive];
 
-        if (empty($this->config)){
+        if (empty($this->config)) {
             $config      = $this->default_config;
             $this->drive = $config['drive'];
         }
@@ -113,7 +113,7 @@ class Factory
             return $this->params = $params;
         }
 
-        $this->params  = config('lock')['params'];
+        $this->params = config('lock')['params'];
 
         return $this->params;
     }

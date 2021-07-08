@@ -10,7 +10,6 @@ namespace Lock\Lock\Redis;
 
 class Data
 {
-
     /**
      * 抢占锁名称
      * @var string
@@ -102,7 +101,7 @@ class Data
      */
     public function __construct($params)
     {
-        foreach ($params as $key=>$value){
+        foreach ($params as $key => $value) {
             $this->$key = $value;
         }
     }
@@ -116,9 +115,9 @@ class Data
     {
         $this->lock_val = $lock_val;
 
-        $this->is_del_lock                  = true;
-        $this->is_del_queue_lock_process    = false;
-        $this->is_del_queue_lock            = false;
+        $this->is_del_lock               = true;
+        $this->is_del_queue_lock_process = false;
+        $this->is_del_queue_lock         = false;
 
         $this->randNum();
 
@@ -130,19 +129,19 @@ class Data
     /**
      * 初始化queueLock数据
      *
-     * @param $lock_val
+     * @param      $lock_val
      * @param null $max_queue_process
-     * @param int $wait_timeout
+     * @param int  $wait_timeout
      */
     public function bootQueueLock($lock_val, $max_queue_process = null, $wait_timeout = 6)
     {
-        $this->lock_val             = $lock_val;
-        $this->max_queue_process    = $max_queue_process;
-        $this->wait_timeout         = $wait_timeout;
+        $this->lock_val          = $lock_val;
+        $this->max_queue_process = $max_queue_process;
+        $this->wait_timeout      = $wait_timeout;
 
-        $this->is_del_lock                  = false;
-        $this->is_del_queue_lock_process    = true;
-        $this->is_del_queue_lock            = true;
+        $this->is_del_lock               = false;
+        $this->is_del_queue_lock_process = true;
+        $this->is_del_queue_lock         = true;
 
         $this->randNum();
 
@@ -160,7 +159,7 @@ class Data
      */
     private function setQueueLockName()
     {
-        return $this->queue_lock_name = $this->queue_lock_prefix. ':' .$this->lock_val;
+        return $this->queue_lock_name = $this->queue_lock_prefix . ':' . $this->lock_val;
     }
 
     /**
@@ -169,7 +168,7 @@ class Data
      */
     private function setQueueLockListName()
     {
-        return $this->queue_lock_list_name = $this->queue_lock_prefix. ':list:' .$this->lock_val;
+        return $this->queue_lock_list_name = $this->queue_lock_prefix . ':list:' . $this->lock_val;
     }
 
     /**
@@ -179,7 +178,7 @@ class Data
      */
     private function setQueueLockProcessName()
     {
-        return $this->queue_lock_process_name = $this->queue_lock_prefix. ':process:' .$this->lock_val;
+        return $this->queue_lock_process_name = $this->queue_lock_prefix . ':process:' . $this->lock_val;
     }
 
     /**
@@ -188,7 +187,7 @@ class Data
      */
     private function setLockName()
     {
-        return $this->lock_name = $this->lock_prefix. ':' .$this->lock_val;
+        return $this->lock_name = $this->lock_prefix . ':' . $this->lock_val;
     }
 
     /**

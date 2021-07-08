@@ -13,7 +13,7 @@ use Lock\Factory\Factory;
 class Lock implements LockContextInterface
 {
     private static $single;
-    private $many;
+    private        $many;
 
     /**
      * Lock constructor.
@@ -30,8 +30,8 @@ class Lock implements LockContextInterface
      * 单例
      * @param $name
      * @param $arguments
-     * @throws LockException
      * @return mixed
+     * @throws LockException
      */
     public static function __callStatic($name, $arguments)
     {
@@ -58,7 +58,7 @@ class Lock implements LockContextInterface
      */
     private static function singleInstance()
     {
-        if (empty(self::$single)){
+        if (empty(self::$single)) {
             self::$single = new Factory();
         }
 
@@ -74,13 +74,18 @@ class Lock implements LockContextInterface
      */
     private function manyInstance($config, $params)
     {
-        if (empty($this->many)){
+        if (empty($this->many)) {
             $this->many = new Factory($config, $params);
         }
 
         return $this->many;
     }
 
-    private function __clone(){}
-    private function __wakeup(){}
+    private function __clone()
+    {
+    }
+
+    private function __wakeup()
+    {
+    }
 }

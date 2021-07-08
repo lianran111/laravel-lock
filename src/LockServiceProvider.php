@@ -15,7 +15,7 @@ class LockServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/lock.php' => $this->app['path.config'].DIRECTORY_SEPARATOR.'lock.php',
+                __DIR__ . '/../config/lock.php' => $this->app['path.config'] . DIRECTORY_SEPARATOR . 'lock.php',
             ]);
         }
     }
