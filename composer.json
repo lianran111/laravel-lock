@@ -1,5 +1,5 @@
 {
-    "name": "nabao/laravel-lock",
+    "name": "lianran111/laravel-lock",
     "description": "高性能, 分布式, 并发抢占锁, 队列锁",
     "keywords": ["lock", "并发锁"],
     "license": "MIT",
@@ -7,13 +7,12 @@
     "minimum-stability": "dev",
     "authors": [
         {
-            "name": "ZhaoCong",
-            "qq":"1140253608",
-            "email": "1140253608@qq.com"
+            "name": "Kevin",
+            "email": "a625689377@qq.com"
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.2",
         "predis/predis": "^1.1"
     },
     "autoload": {
